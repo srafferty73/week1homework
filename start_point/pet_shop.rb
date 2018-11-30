@@ -25,9 +25,17 @@ end
 
 def pets_by_breed(pet_shop, pets)
   result = []
-  for breed_name in @pet_shop[:pets]
-    if breed_name[:breed] == "British Shorthair"
-      result.push(x[:name]) #using puts this seems to duplicate 1st result???
+  if pets == "British Shorthair"
+    for breed_name in @pet_shop[:pets]
+      if breed_name[:breed] == "British Shorthair"
+        result.push(breed_name[:name])
+      end
+    end
+  elsif pets == "Dalmation"
+    for breed_name in @pet_shop[:pets]
+      if breed_name[:breed] != "Dalmation"
+        result.clear
+      end
     end
   end
   return result
