@@ -18,3 +18,17 @@ end
 def increase_pets_sold(pet_shop, increase)
   return @pet_shop[:admin][:pets_sold] += increase
 end
+
+def stock_count(pets)
+  return @pet_shop[:pets].length
+end
+
+def pets_by_breed(pet_shop, pets)
+  result = []
+  for breed_name in @pet_shop[:pets]
+    if breed_name[:breed] == "British Shorthair"
+      result.push(x[:name])
+    end
+  end
+  return result
+end
