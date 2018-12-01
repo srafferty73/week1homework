@@ -41,18 +41,63 @@ def pets_by_breed(pet_shop, pets)
   return result
 end
 
-def find_pet_by_name(pet_shop, name)
-  if name == "Arthur"
+def find_pet_by_name(pet_shop, pet_name)
+  if pet_name == "Arthur"
     for pet in @pet_shop[:pets]
       if pet[:name] == "Arthur"
         return pet
       end
     end
-  elsif name == "Fred"
+  elsif pet_name == "Fred"
     for pet in @pet_shop[:pets]
       if pet[:name] != "Fred"
         return nil
       end
     end
+  else
+    return nil
+  end
+end
+
+# def remove_pet_by_name(pet_shop, pet_name)
+#   for pet in @pet_shop[:pets]
+#     if pet[:name] == "Arthur"
+#       @pet_shop[:pets].delete(pet)
+#     end
+#   end
+# end
+
+def add_pet_to_stock(pet_shop, new_pet)
+  num_of_pets = @pet_shop[:pets].length
+  if num_of_pets < 7
+    @pet_shop[:pets] << {
+      name: "Seventh One",
+      pet_type: :elephant,
+      breed: "Big eared one",
+      price: 500
+    }
+  end
+end
+
+def customer_cash(customers)
+  return @customers[0][:cash]
+end
+
+def remove_customer_cash(customer, amount)
+  return @customers[0][:cash] -= 100
+end
+
+def customer_pet_count(customer)
+  return @customers[0][:pets].count
+end
+
+def add_pet_to_customer(customer, new_pet)
+  if @customers[0][:pets].count < 1
+    @customers[0][:pets] << {
+        name: "Roary",
+        pet_type: :tiger,
+        breed: "Siberean",
+        price: 1000
+    }
   end
 end
