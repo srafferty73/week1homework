@@ -101,3 +101,11 @@ def add_pet_to_customer(customer, new_pet)
     }
   end
 end
+
+def customer_can_afford_pet(customer, new_pet)
+  if @customers[1][:cash] >= @new_pet[:price]
+    @customers[1][:pets] << @new_pet
+    return true
+  end
+  return false
+end
